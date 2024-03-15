@@ -37,7 +37,7 @@ function adicionar() {
 
 <template>
   <div class="addCity">
-    <p>Adicionar cidades</p>
+  <p>Adicionar cidades</p>
   <input class="input" type="text" v-model="novaCidade" @keyup.enter="adicionar()">
   <button v-show="showButton" id="add" @click="adicionar">Adicionar</button>
   <button id="limpar" @click="Limpar(i)">Limpar</button>
@@ -56,9 +56,6 @@ function adicionar() {
     background-color: #c92e2e;
     color: #fff;
     cursor: pointer;
-  }
-  .addCity{
-    
   }
   #add{
     background-color:rgb(21, 119, 18)
