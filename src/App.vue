@@ -37,7 +37,7 @@ function adicionar() {
 
 <template>
   <div class="addCity">
-  <p>Adicionar cidades</p>
+  <p>Adicionar Cidades</p>
   <input class="input" type="text" v-model="novaCidade" @keyup.enter="adicionar()">
   <button v-show="showButton" id="add" @click="adicionar">Adicionar</button>
   <button id="limpar" @click="Limpar(i)">Limpar</button>
@@ -70,5 +70,8 @@ function adicionar() {
     align-items: center;
     margin-bottom: 10px;
   }
-  
+#limpar{
+  background-color: rgba(105, 105, 105, 0.637);
+  color: black;
+}
 </style>
