@@ -15,8 +15,10 @@ const cidades = ref([
 const novaCidade = ref(``);
 
 function adicionar() {
+  if (novaCidade.value != "" && novaCidade.value != " ") {
     cidades.value.push(novaCidade.value)
     novaCidade.value = ''
+  }
   }
   function remover(index) {
     cidades.value.splice(index, 1)
@@ -24,16 +26,52 @@ function adicionar() {
   const OrdemAbc = computed(() => {
     return cidades.value.sort();
   });
+  function Limpar(i){
+    cidades.value.splice(i, cidades.value.length)
+  }
+
+  const showButton = computed(() => {
+    return (novaCidade.value != "" && novaCidade.value != " ") ? true : false
+  })
 </script>
 
 <template>
-  <input type="text" v-model="novaCidade">
-  <button @click="adicionar">Adicionar</button>
+  <div class="addCity">
+    <p>Adicionar cidades</p>
+  <input class="input" type="text" v-model="novaCidade" @keyup.enter="adicionar()">
+  <button v-show="showButton" id="add" @click="adicionar">Adicionar</button>
+  <button id="limpar" @click="Limpar(i)">Limpar</button>
+  </div>
  <ul>
     <li v-for="(item, index) in OrdemAbc" :key="index"> {{ item }} <button @click="remover(index)">Remover</button> </li>
   </ul>
 </template>
 
 <style scoped>
-
+ button {
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #c92e2e;
+    color: #fff;
+    cursor: pointer;
+  }
+  .addCity{
+    
+  }
+  #add{
+    background-color:rgb(21, 119, 18)
+  }
+  button:hover {
+    background-color: #882828;
+  }
+  .input{
+    margin: 10px;
+  }
+  li{
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
 </style>
